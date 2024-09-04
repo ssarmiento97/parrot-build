@@ -1,0 +1,10 @@
+---
+- name: "Install NVim"
+  shell: |
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    sudo rm -rf /opt/nvim
+    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+- name: "Importing Customization Options"
+  git:
+    repo: "https://github.com/ssarmiento97/nvim-config.git"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
